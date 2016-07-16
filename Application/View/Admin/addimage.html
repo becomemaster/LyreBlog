@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+    <link href="/Public/styles/index.css" rel="stylesheet">
+    <link href="/Public/styles/bootstrap.min.css" rel="stylesheet">
+    <link href="/Public/styles/bootstrap-theme.css" rel="stylesheet">
+    <script src="/Public/js/bootstrap.min.js"></script>
+    <script src="/Public/js/bootstrap.js"></script>
+    <script src="/Public/js/jquery.min.js"></script>
+</head>
+<body>
+
+<?php require __VIEW__.'top.html'; ?>
+<!--导航结束-->
+
+<!--主体内容开始-->
+<div id="content">
+
+    <h1>添加相片 - <?php echo $_SESSION['ADMIN'];?></h1>
+    <form role="form" action="" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="name">名称</label>
+            <input type="text" class="form-control" id="name"
+                   placeholder="请输入名称" name="photoName">
+            <label for="read">说明</label>
+            <textarea class="form-control" id="read" style="resize: none;" name="photoRed"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="inputfile">选择图片</label>
+            <input type="file" id="inputfile" name="photoFile">
+        </div>
+        <button type="submit" class="btn btn-default">提交</button>
+    </form>
+
+</div>
+<!--主体内容结束-->
+<?php require __VIEW__.'footer.html'; ?>
+
+</body>
+</html>

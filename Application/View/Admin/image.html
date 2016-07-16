@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+    <link href="/Public/styles/index.css" rel="stylesheet">
+    <link href="/Public/styles/bootstrap.min.css" rel="stylesheet">
+    <link href="/Public/styles/bootstrap-theme.css" rel="stylesheet">
+    <script src="/Public/js/bootstrap.min.js"></script>
+    <script src="/Public/js/bootstrap.js"></script>
+    <script src="/Public/js/jquery.min.js"></script>
+</head>
+<body>
+
+<?php require __VIEW__.'top.html'; ?>
+<!--导航结束-->
+<?php require __VIEW__.'left.html'; ?>
+
+<!--主体内容开始-->
+<div id="content">
+
+    <div class="row">
+    <?php while($rows=mysqli_fetch_assoc($imgs)):?>
+        <div class="col-sm-6 col-md-3" style="width:400px;">
+            <div class="thumbnail">
+                <a href="<?php echo $rows['img_url']?>" target="_blank"><img src="<?php echo $rows['img_url']?>" alt="图片有问题啦~" ></a>
+            </div>
+            <div class="caption">
+                <h3><?php echo $rows['photo_name'];?></h3>
+                <p><?php echo $rows['photo_read'];?></p>
+                <p>
+                    <a href="?p=admin&c=image&a=Delimg&id=<?php echo $rows['img_id'];?>" class="btn btn-primary" role="button">
+                        删除
+                    </a>
+                </p>
+            </div>
+        </div>
+<?php endwhile;?>
+
+    </div>
+</div>
+    <!--主体内容结束-->
+    <?php require __VIEW__.'footer.html'; ?>
+
+</body>
+</html>

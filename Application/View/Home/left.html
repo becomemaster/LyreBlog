@@ -1,0 +1,18 @@
+<div id="me">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                Welcome,<?php echo $user;?>
+            </h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="photo"><img src="/Public/images/login.jpg" width="150px" height="150px"></div>
+            <div class="u_info"><strong>@<?php echo $site['site_user'] ?></strong></div>
+            <div class="world"><strong><?php echo $site['site_info'] ?></strong></div>
+            <h3>文章总数 <span class="label label-info"><?php echo $page_num;?></span> 篇</h3>
+            <h3>注册用户 <span class="label label-default"><?php echo $reg_users[0];?></span> 人</h3>
+            <h3>总浏览量 <span class="label label-success"><?php echo $site['site_num'] ?></span> 次</h3>
+        </div>
+    </div>
+</div><!--    左侧主体结束   -->

@@ -1,0 +1,19 @@
+<div id="top">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.php"><?php echo $site['site_name'] ?></a>        </div>
+        <div>
+            <ul class="nav nav-tabs">
+                <li><a href="index.php">首页</a></li>
+                <?php
+                while($rows=mysqli_fetch_assoc($page_type)){
+                    echo '<li>'."<a href='?p=home&c=Page&a=Pagetype&type=".$rows['Type_id']."'>".$rows['Page_type'].'</a></li>';
+                }
+                ?>
+                <li><a href="?p=home&c=Leave">我的留言</a></li>
+                <li><a href="?p=home&c=Image">相册</a></li>
+                <?php echo $login;?>
+            </ul>
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,4 @@
+@import "public.css";
+#login_top{margin-top:40px;width: 100%;  text-align: center;margin-bottom: 10px;}
+#login_top img{border-radius: 50%;}
+#login_form{width: 400px; height: 400px; margin:auto; margin-top: 40px;}

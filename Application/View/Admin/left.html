@@ -1,0 +1,29 @@
+<!--    左侧主体   -->
+<div id="me">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                Welcome,<?php echo $_SESSION['ADMIN'];?>
+            </h3>
+        </div>
+        <div class="panel-body">
+            <div class="photo"><img src="/Public/images/login.jpg" width="150px" height="150px"></div>
+            <div class="u_info"><strong>@<?php echo $site['site_user'] ?></strong></div>
+            <div class="world"><strong><?php echo $site['site_info'] ?></strong></div>
+        </div>
+        <ul class="list-group" style="text-align: center">
+            <li class="list-group-item"><a href="?p=admin&c=User&a=UserManager">用户管理</a> </li>
+            <li class="list-group-item"><a href="?p=admin&c=AddUser&a=AddUser">添加用户</a></li>
+            <li class="list-group-item"><a href="?p=admin&c=Page">文章管理</a></li>
+            <li class="list-group-item"><a href="?p=admin&c=AddPage">添加文章</a></li>
+            <li class="list-group-item"><a href="?p=admin&c=SiteInfo">站点信息管理</a></li>
+            <li class="list-group-item"><a href="?p=admin&c=PageType&a=TypeManager">站点类别管理</a></li>
+            <li class="list-group-item"><a href="?p=admin&c=PageType&a=AddType">添加类别</a></li>
+            <li class="list-group-item"><a href="?p=admin&c=Message">评论管理</a></li>
+            <li class="list-group-item"><a href="?p=admin&c=image&">个人相册</a></li>
+            <li class="list-group-item"><a href="?p=admin&c=image&a=Addimage">添加相册</a></li>
+            <li class="list-group-item"><a href="?p=admin&c=Index&a=Logout">退出登录</a></li>
+        </ul>
+
+    </div>
+</div><!--    左侧主体结束   -->

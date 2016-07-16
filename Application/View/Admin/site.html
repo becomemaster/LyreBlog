@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员主页</title>
+    <link href="/Public/styles/admin.css" rel="stylesheet">
+    <link href="/Public/styles/bootstrap.min.css" rel="stylesheet">
+    <link href="/Public/styles/bootstrap-theme.css" rel="stylesheet">
+    <script src="/Public/js/bootstrap.min.js"></script>
+    <script src="/Public/js/bootstrap.js"></script>
+    <script src="/Public/js/jquery.min.js"></script>
+</head>
+<body>
+<?php require __VIEW__.'top.html'; ?>
+<!--导航结束-->
+
+<?php require __VIEW__.'left.html'; ?>
+<!--主体内容开始-->
+<div id="content">
+
+
+    <h1>站点信息管理</h1>
+    <div class="panel panel-default">
+
+        <form method="post" style="width: 600px;margin: auto;margin-bottom: 20px;" action="?p=admin&c=SiteInfo&a=UpdateSiteInfo">
+       <div class="input-group" style="margin-top: 50px;">
+         <span class="input-group-addon">站点名称</span>
+         <input type="text" class="form-control" placeholder="站点名称" name="site_name" value="<?php echo $site['site_name']?>">
+        </div>
+        <div class="input-group" style="margin-top: 50px;">
+            <span class="input-group-addon">作者</span>
+            <input type="text" class="form-control" placeholder="作者" name="site_user" value="<?php echo $site['site_user']?>">
+        </div>
+
+        <div class="input-group" style="margin-top: 50px;">
+            <span class="input-group-addon">总浏览量</span>
+            <input type="text" class="form-control" placeholder="总浏览量" name="site_num" value="<?php echo $site['site_num'] ?>">
+        </div>
+
+        <div class="input-group" style="margin-top: 50px;">
+            <span class="input-group-addon">站点座右铭</span>
+            <input type="text" class="form-control" placeholder="站点座右铭" name="site_info" value="<?php echo $site['site_info']?>">
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary btn-lg btn-block">
+            提交修改
+        </button>
+        </form>
+
+</div>
+</div>
+
+
+
+<?php require __VIEW__.'footer.html'; ?>
+
+
+
+
+</body>
+</html>

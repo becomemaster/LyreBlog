@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员主页</title>
+    <link href="/Public/styles/admin.css" rel="stylesheet">
+    <link href="/Public/styles/bootstrap.min.css" rel="stylesheet">
+    <link href="/Public/styles/bootstrap-theme.css" rel="stylesheet">
+    <script src="/Public/js/bootstrap.min.js"></script>
+    <script src="/Public/js/bootstrap.js"></script>
+    <script src="/Public/js/jquery.min.js"></script>
+</head>
+<body>
+<?php require __VIEW__.'top.html'; ?>
+<!--导航结束-->
+
+<?php require __VIEW__.'left.html'; ?>
+<!--主体内容开始-->
+<div id="content">
+    <h1>文章管理</h1>
+    <div class="panel panel-default">
+
+        <table class="table">
+            <caption>文章类别</caption>
+            <tbody>
+            <tr>
+                <td>标题</td>
+                <td>阅读数</td>
+                <td>时间</td>
+                <td>编辑</td>
+                <td>删除</td>
+            </tr>
+            <?php
+                while($row=mysqli_fetch_assoc($page)):
+                $time=date("Y-m-d H:i:s",$row['Page_time']);
+                ?>
+            <tr>
+                <td><?php echo $row['Page_title'];?></td>
+                <td><?php echo $row['Page_read'];?></td>
+                <td><?php echo $time;?></td>
+                <td><a href="?p=admin&c=EditPage&page_id=<?php echo $row['Pageid'];?>&type=<?php echo $row['Page_type'] ?>">编辑</a></td>
+                <td><a href="?p=admin&c=Page&a=DeletePage&del_id=<?php echo $row['Pageid'];?>">删除</a></td>
+            </tr>
+            <?php endwhile;?>
+
+            </tbody>
+        </table>
+    </div>
+
+    <ul class="pagination">
+        <?php
+            for($n=1;$n<=$pages;$n++):
+            ?>
+        <li><a href="?page=<?php echo $n;?>"><?php echo $n ?></a></li>
+        <?php endfor;?>
+    </ul>
+
+</div>
+
+
+
+
+<!--主体内容结束-->
+<?php require __VIEW__.'footer.html'; ?>
+
+</body>
+</html>

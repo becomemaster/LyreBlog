@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员主页</title>
+    <link href="/Public/styles/admin.css" rel="stylesheet">
+    <link href="/Public/styles/bootstrap.min.css" rel="stylesheet">
+    <link href="/Public/styles/bootstrap-theme.css" rel="stylesheet">
+    <script src="/Public/js/bootstrap.min.js"></script>
+    <script src="/Public/js/bootstrap.js"></script>
+    <script src="/Public/js/jquery.min.js"></script>
+</head>
+<body>
+<?php require __VIEW__.'top.html'; ?>
+<!--导航结束-->
+
+<?php require __VIEW__.'left.html'; ?>
+
+<!--主体内容开始-->
+<div id="content">
+    <h1>用户管理</h1>
+    <div class="panel panel-default">
+
+        <table class="table">
+            <caption>全部用户</caption>
+            <tbody>
+            <tr>
+                <td>用户名</td>
+                <td>最后登录时间</td>
+                <td>操作</td>
+            </tr>
+            <?php
+                while($row=mysqli_fetch_assoc($users)):
+                $time=date("Y-m-d H:i:s",$row['Login_time']);
+                ?>
+            <tr>
+                <td><?php echo $row['Username'];?></td>
+                <td><?php echo $time;?></td>
+                <td><a href="?p=admin&c=User&a=DelUser&del_uid=<?php echo $row['Uid'];?>">删除</a></td>
+            </tr>
+            <?php endwhile;?>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+<!--主体内容结束-->
+<?php require __VIEW__.'footer.html'; ?>
+
+</body>
+</html>

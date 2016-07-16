@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+    <link href="/Public/styles/index.css" rel="stylesheet">
+    <link href="/Public/styles/bootstrap.min.css" rel="stylesheet">
+    <link href="/Public/styles/bootstrap-theme.css" rel="stylesheet">
+    <script src="/Public/js/bootstrap.min.js"></script>
+    <script src="/Public/js/bootstrap.js"></script>
+    <script src="/Public/js/jquery.min.js"></script>
+</head>
+<body>
+
+<?php require __VIEW__.'top.html'; ?>
+<!--导航结束-->
+
+<?php require __VIEW__.'left.html'; ?>
+
+<div id="content">
+
+    <h1><?php echo $type_name; ?></h1>
+    <div class="panel panel-default">
+        <?php
+        $p=1;
+        while($page_row=mysqli_fetch_assoc($page_content)):
+        $Pageid=$page_row['Pageid'];
+        $content=$page_row['Page_content'];
+        $content=mb_substr($content,0,10,'UTF-8');
+        ?>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item"><h4><a href="?p=home&c=ShowPage&a=ShowPage&page=<?php echo $page_row['Pageid']?>"><?php echo $page_row['Page_title'] ?></a></h4></li>
+                <li class="list-group-item"><h5>简要:<?php echo $content,'~~';?></h5></li>
+                <li class="list-group-item"><h5>有<span class="label label-info"><?php echo $page_row['Page_read']?></span>人阅读</h5></li>
+                <li class="list-group-item"><h5>时间 <?php echo date("Y-m-d H:i:s",$page_row['Page_time'])?></h5></li>
+            </ul>
+        </div>
+        <?php $p++;endwhile;?>
+</div>
+    <?php require __VIEW__.'footer.html'; ?>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+    <link href="/Public/styles/index.css" rel="stylesheet">
+    <link href="/Public/styles/bootstrap.min.css" rel="stylesheet">
+    <link href="/Public/styles/bootstrap-theme.css" rel="stylesheet">
+    <script src="/Public/js/bootstrap.min.js"></script>
+    <script src="/Public/js/bootstrap.js"></script>
+    <script src="/Public/js/jquery.min.js"></script>
+</head>
+<body>
+
+<?php require __VIEW__.'top.html'; ?>
+<!--导航结束-->
+
+<?php require __VIEW__.'left.html'; ?>
+
+
+<div id="content">
+    <h3><?php  echo $page['Page_title'] ?></h3>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item"><h5>发表人：<?php echo $page['Page_user'] ?></h5></li>
+                <li class="list-group-item"><h5>时间：<?php echo $page_time;?></h5></li>
+                <li class="list-group-item"><h4>有<span class="label label-info"><?php  echo $page['Page_read'];?></span>人阅读</h4></li>
+                <li class="list-group-item"><?php echo $page['Page_content'] ?></li>
+            </ul>
+        </div>
+    </div>
+    <?php
+    while($row=mysqli_fetch_assoc($page_msg)):
+    ?>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h4><?php echo $row['username'];?>说：</h4>
+            <small><?php echo $row['Page_msg']?></small>
+        </div>
+    </div>
+    <?php endwhile;?>
+</div>
+
+
+
+<div class="clearfix"></div>
+
+<div id="msg">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <?php if(empty($_SESSION['USER'])){echo '登录后才可以发言。<a href="index.php?p=home&c=Login">登录</a>';}?>
+            <div style="<?php if(empty($_SESSION['USER'])){echo 'display:none;';} ?>padding: 0px 100px 10px;" >
+                <form class="bs-example bs-example-form" role="form" method="POST" action="?p=home&c=Message&a=Message&page=<?php echo (int)$_GET['page'] ?>">
+                    <div class="input-group">
+                        <span class="input-group-addon">@</span>
+                        <input type="text" class="form-control" placeholder="邮箱" name="email">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <textarea type="text" class="form-control" rows="5" cols="50" style="resize: none;" name="msg"></textarea>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                        提交留言
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php require __VIEW__.'footer.html'; ?>
+
+</body>
+</html>

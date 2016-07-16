@@ -1,0 +1,10 @@
+@import "public.css";
+#top{width: 100%;height:60px;}
+#me{width:300px;float: left;margin-top: 20px; margin-left: 20px;}
+#me .photo{margin: auto;width: 150px;height: 150px;}
+#me .photo img{border-radius: 50%;}
+#me .u_info{width: 300px;margin:auto;margin-top:20px;text-align: center;font-style:italic;font-size:18px; }
+#me .world{font-size:16px;margin:auto;text-align: center;margin-top:5px;}
+#content {width: 60%; float: left;margin-top: 20px; margin-left: 100px; }
+#footer{width: 100%; height: 120px; text-align: center;}
+#msg{ width: 600px; margin:auto; }

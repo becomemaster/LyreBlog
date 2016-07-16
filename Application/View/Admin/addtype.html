@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员主页</title>
+    <link href="/Public/styles/admin.css" rel="stylesheet">
+    <link href="/Public/styles/bootstrap.min.css" rel="stylesheet">
+    <link href="/Public/styles/bootstrap-theme.css" rel="stylesheet">
+    <script src="/Public/js/bootstrap.min.js"></script>
+    <script src="/Public/js/bootstrap.js"></script>
+    <script src="/Public/js/jquery.min.js"></script>
+</head>
+<body>
+<?php require __VIEW__.'top.html'; ?>
+<!--导航结束-->
+
+<?php require __VIEW__.'left.html'; ?>
+
+<!--主体内容开始-->
+<div id="content">
+
+    <h1>类别添加</h1>
+    <div class="panel panel-default">
+
+        <form method="post" style="width: 600px;margin: auto;margin-bottom: 20px;">
+            <div class="input-group" style="margin-top: 50px;">
+                <span class="input-group-addon">类别名称</span>
+                <input type="text" class="form-control" placeholder="类别名称" name="typename" value="">
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">
+                确认添加
+            </button>
+        </form>
+
+    </div>
+</div>
+
+
+
+<?php require __VIEW__.'footer.html'; ?>
+
+
+
+
+</body>
+</html>

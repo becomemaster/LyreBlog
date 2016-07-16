@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员主页</title>
+    <link href="/Public/styles/admin.css" rel="stylesheet">
+    <link href="/Public/styles/bootstrap.min.css" rel="stylesheet">
+    <link href="/Public/styles/bootstrap-theme.css" rel="stylesheet">
+    <script src="/Public/js/bootstrap.min.js"></script>
+    <script src="/Public/js/bootstrap.js"></script>
+    <script src="/Public/js/jquery.min.js"></script>
+</head>
+<body>
+<?php require __VIEW__.'top.html'; ?>
+<!--导航结束-->
+
+<?php require __VIEW__.'left.html'; ?>
+<!--主体内容开始-->
+<div id="content">
+    <h1>评论管理</h1>
+    <div class="panel panel-default">
+
+        <table class="table">
+            <caption>全部评论</caption>
+            <tbody>
+            <tr>
+                <td>文章标题</td>
+                <td>用户名</td>
+                <td>评论内容</td>
+                <td>邮箱</td>
+            </tr>
+            <?php
+                while($row=mysqli_fetch_assoc($msg)):
+                ?>
+            <tr>
+                <td><?php
+
+             $page_id=$row['Pageid'];
+             echo $this->MessageModel->getMessagetitle($page_id);
+                ?></td>
+                <td><?php echo $row['username'];?></td>
+                <td><?php echo $row['Page_msg'];?></td>
+                <td><?php echo $row['email'];?></td>
+                <td><a href="?p=admin&c=Message&a=DelMsg&del=<?php echo $row['msg_id'];?>">删除</a></td>
+            </tr>
+            <?php endwhile;?>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+<!--主体内容结束-->
+<?php require __VIEW__.'footer.html'; ?>
+
+</body>
+</html>

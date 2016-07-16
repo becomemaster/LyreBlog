@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员主页</title>
+    <link href="/Public/styles/admin.css" rel="stylesheet">
+    <link href="/Public/styles/bootstrap.min.css" rel="stylesheet">
+    <link href="/Public/styles/bootstrap-theme.css" rel="stylesheet">
+    <script src="/Public/js/bootstrap.min.js"></script>
+    <script src="/Public/js/bootstrap.js"></script>
+    <script src="/Public/js/jquery.min.js"></script>
+    <script src="/Public/plugins/ueditor.config.js"></script>
+    <script src="/Public/plugins/ueditor.all.min.js"></script>
+    <script src="/Public/plugins/lang/zh-cn/zh-cn.js"></script>
+</head>
+<body>
+<?php require __VIEW__.'top.html'; ?>
+<!--导航结束-->
+
+<?php require __VIEW__.'left.html'; ?>
+<!--主体内容开始-->
+<div id="content">
+    <h1>文章编辑</h1>
+    <div class="panel panel-default">
+        <div style="padding: 0px 100px 10px;">
+            <form class="bs-example bs-example-form" role="form" method="POST">
+
+                <div class="sel">
+                    <h4>请选择类别</h4>
+                  <select name="type">
+                      <?php while($row=mysqli_fetch_assoc($page_type)):?>
+                      <option value="<?php echo $row['Type_id'] ?>"><?php echo $row['Page_type'] ?></option>
+                      <?php endwhile;?>
+                  </select>
+                </div>
+
+                <div class="input-group" style="margin-top: 50px;">
+                    <span class="input-group-addon">标题</span>
+                    <input type="text" class="form-control" placeholder="标题" name="title" value="">
+                </div>
+
+                    <textarea id="contents" name="content">
+
+                    </textarea>
+
+                <br>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">
+                    添加文章
+                </button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var ue = UE.getEditor('contents');
+</script>
+
+<!--主体内容结束-->
+<?php require __VIEW__.'footer.html'; ?>
+
+</body>
+</html>

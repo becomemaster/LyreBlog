@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员主页</title>
+    <link href="/Public/styles/admin.css" rel="stylesheet">
+    <link href="/Public/styles/bootstrap.min.css" rel="stylesheet">
+    <link href="/Public/styles/bootstrap-theme.css" rel="stylesheet">
+    <script src="/Public/js/bootstrap.min.js"></script>
+    <script src="/Public/js/bootstrap.js"></script>
+    <script src="/Public/js/jquery.min.js"></script>
+</head>
+<body>
+<?php require __VIEW__.'top.html'; ?>
+<!--导航结束-->
+
+<?php require __VIEW__.'left.html'; ?>
+
+<!--主体内容开始-->
+<div id="content">
+
+
+    <h1>管理界面</h1>
+    <div class="panel panel-default">
+
+        <table class="table">
+            <caption>基本的信息</caption>
+            <tbody>
+            <tr>
+                <td>服务器路径</td>
+                <td><?php echo ROOT_PATH;?></td>
+            </tr>
+            <tr>
+                <td>PHP版本</td>
+                <td><?php echo PHP_VERSION?></td>
+            </tr>
+
+            <tr>
+                <td>服务器系统</td>
+                <td><?php echo PHP_OS?></td>
+            </tr>
+
+            <tr>
+                <td>站点名称</td>
+                <td><?php echo $site['site_name']?></td>
+            </tr>
+            <tr>
+                <td>作者</td>
+                <td><?php echo $site['site_user']?></td>
+            </tr>
+
+            <tr>
+                <td>注册用户</td>
+                <td><?php echo $reg_users[0];?>人</td>
+            </tr>
+            <tr>
+                <td>文章总数 </td>
+                <td><?php echo $page_num;?>篇</td>
+            </tr>
+            <tr>
+                <td>总浏览量  </td>
+                <td><?php echo $site['site_num'] ?>次</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+
+
+
+
+<?php require __VIEW__.'footer.html'; ?>
+
+
+
+
+</body>
+</html>
